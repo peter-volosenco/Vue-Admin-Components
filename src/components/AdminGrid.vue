@@ -47,6 +47,11 @@ export default {
       vItems: [],
     };
   },
+  watch: {
+    items: function (newVal) {
+      this.vItems = newVal;
+    },
+  },
   methods: {
     clearSelection() {
       this.selectedItem = null;
@@ -64,9 +69,6 @@ export default {
       this.$emit('newList', this.vItems);
       this.clearSelection();
     },
-  },
-  mounted() {
-    this.vItems = this.items;
   },
 };
 </script>

@@ -3,7 +3,7 @@
     <div class="logo">
       <img alt="Vue logo" width="64" src="https://vuejs.org/images/logo.png" />
     </div>
-    <AdminGrid :items="Articles" />
+    <AdminGrid :items="Articles" v-on:newList="saveListToStorage" />
   </div>
 </template>
 
@@ -32,6 +32,37 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    getFromStorage() {
+      return window.localStorage.getItem('demo_articles');
+    },
+    saveToStorage() {
+      window.localStorage.setItem(
+        'demo_articles',
+        JSON.stringify(this.Articles)
+      );
+    },
+    saveListToStorage(newList) {
+      console.log('saveListToStorage', newList);
+      window.localStorage.setItem('demo_articles', JSON.stringify(newList));
+    },
+  },
+  mounted() {
+    let getFromStorage = this.getFromStorage();
+
+    if (this.getFromStorage() == null) {
+      this.saveToStorage();
+    } else {
+      let loadArticles = JSON.parse(getFromStorage);
+      this.Articles = loadArticles;
+      
+      try {
+      } catch (e) {
+        this.saveToStorage();
+        console.error(e);
+      }
+    }
   },
 };
 </script>
