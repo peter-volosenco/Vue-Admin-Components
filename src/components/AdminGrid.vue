@@ -48,6 +48,7 @@ export default {
     };
   },
   watch: {
+    //once data restored from local storage, update
     items: function (newVal) {
       this.vItems = newVal;
     },
@@ -71,6 +72,7 @@ export default {
     },
   },
   mounted() {
+    //initial load, update
     this.vItems = this.items;
   },
 };
