@@ -8,7 +8,7 @@
         <td>Order</td>
         <td>Actions</td>
       </tr>
-      <tr v-for="(item, index) in items" :key="item.Id">
+      <tr v-for="(item, index) in vItems" :key="item.Id">
         <td>{{ item.Id }}</td>
         <td>{{ item.Name }}</td>
         <td>{{ item.Text }}</td>
@@ -44,6 +44,7 @@ export default {
     return {
       selectedItem: null,
       selectedIndex: null,
+      vItems: [],
     };
   },
   methods: {
@@ -52,14 +53,20 @@ export default {
       this.selectedIndex = null;
     },
     editItem(item, index) {
-      console.log('AdminGrid:>> editItem', item, index);
       this.selectedItem = item;
       this.selectedIndex = index;
     },
+    updateItem(item, index) {
+      this.vItems[index] = item;
+    },
     save(item, index) {
-      this.$emit('save', item, index);
+      this.updateItem(item, index);
+      this.$emit('newList', this.vItems);
       this.clearSelection();
     },
+  },
+  mounted() {
+    this.vItems = this.items;
   },
 };
 </script>

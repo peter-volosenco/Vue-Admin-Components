@@ -3,7 +3,7 @@
     <div class="logo">
       <img alt="Vue logo" width="64" src="https://vuejs.org/images/logo.png" />
     </div>
-    <AdminGrid :items="vItems" />
+    <AdminGrid :items="Articles" />
   </div>
 </template>
 
@@ -17,7 +17,7 @@ export default {
   },
   data: function () {
     return {
-      vItems: [
+      Articles: [
         {
           Id: 'dbfb8245-6f2f-4d31-96f4-f7764ebb3e0b',
           Name: 'Test 1',
@@ -32,14 +32,6 @@ export default {
         },
       ],
     };
-  },
-  methods: {
-    updateItem(item, index) {
-      console.log('updateItem');
-      console.log(item);
-      console.log(index);
-      this.vItems[index] = item;
-    },
   },
 };
 </script>
