@@ -70,6 +70,9 @@ export default {
       this.clearSelection();
     },
   },
+  mounted() {
+    this.vItems = this.items;
+  },
 };
 </script>
 
