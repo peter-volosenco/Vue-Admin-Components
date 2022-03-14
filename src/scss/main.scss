@@ -25,6 +25,12 @@ tr:first-child {
   font-weight: bold;
 }
 
+tr {
+  td:last-child {
+    cursor: pointer;
+  }
+}
+
 .wrap {
   max-width: 680px;
   margin: 0 auto;
