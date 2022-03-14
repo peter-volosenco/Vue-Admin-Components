@@ -43,36 +43,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.wrap {
-  max-width: 680px;
-  margin: 0 auto;
-}
-
-.navigation {
-  font-size: 1.4rem;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 4px;
-}
-
-.item {
-  margin-bottom: 12px;
-}
-
-input,
-textarea {
-  width: 100%;
-}
-
-.save {
-  font-size: 1.4rem;
-  font-weight: bold;
-  text-align: right;
-}
-</style>
+<style lang="scss" scoped></style>

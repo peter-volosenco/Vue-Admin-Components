@@ -56,7 +56,7 @@ export default {
     } else {
       let loadArticles = JSON.parse(getFromStorage);
       this.Articles = loadArticles;
-      
+
       try {
       } catch (e) {
         this.saveToStorage();
@@ -67,14 +67,6 @@ export default {
 };
 </script>
 
-<style scoped>
-#app {
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-.logo {
-  text-align: center;
-  margin-bottom: 20px;
-}
+<style lang="scss">
+@import './scss/main.scss';
 </style>

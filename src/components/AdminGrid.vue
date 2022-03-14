@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table v-if="selectedItem == null" border="1">
+    <table v-if="selectedItem == null">
       <tr>
         <td>ID</td>
         <td>Name</td>
@@ -78,14 +78,4 @@ export default {
 };
 </script>
 
-<style>
-table {
-  text-align: center;
-  max-width: 680px;
-  margin: 0 auto;
-}
-
-tr:first-child {
-  font-weight: bold;
-}
-</style>
+<style lang="scss" scoped></style>
