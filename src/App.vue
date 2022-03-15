@@ -3,7 +3,7 @@
     <div class="logo">
       <img alt="Vue logo" width="64" src="https://vuejs.org/images/logo.png" />
     </div>
-    <AdminGrid :items="Articles" v-on:newList="saveListToStorage" />
+    <AdminGrid :items="Articles" v-on:newList="StorageSaveUpdated" />
   </div>
 </template>
 
@@ -22,32 +22,32 @@ export default {
     };
   },
   methods: {
-    getFromStorage() {
+    StorageGetLatest() {
       return window.localStorage.getItem('demo_articles');
     },
-    saveToStorage() {
+    StorageInitCopy() {
       window.localStorage.setItem(
         'demo_articles',
         JSON.stringify(this.Articles)
       );
     },
-    saveListToStorage(newList) {
-      console.log('saveListToStorage', newList);
+    StorageSaveUpdated(newList) {
+      console.log('StorageSaveUpdated', newList);
       window.localStorage.setItem('demo_articles', JSON.stringify(newList));
     },
   },
   mounted() {
-    let getFromStorage = this.getFromStorage();
+    let StorageGetLatest = this.StorageGetLatest();
 
-    if (this.getFromStorage() == null) {
-      this.saveToStorage();
+    if (this.StorageGetLatest() == null) {
+      this.StorageInitCopy();
     } else {
-      let loadArticles = JSON.parse(getFromStorage);
+      let loadArticles = JSON.parse(StorageGetLatest);
       this.Articles = loadArticles;
 
       try {
       } catch (e) {
-        this.saveToStorage();
+        this.StorageInitCopy();
         console.error(e);
       }
     }
